@@ -1,22 +1,36 @@
 /* src/components/Layout/Layout.module.css */
 
+.appLayout {
+  min-height: 100vh;
+}
+
+.siteLayout {
+  transition: margin-left 0.3s ease;
+}
+
 .siteLayoutBackground {
   background: #fff;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
-.logo {
-  height: 32px;
-  margin: 16px;
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.siteLayoutBackground {
+.siteLayoutContent {
+  margin: 24px 16px;
+  padding: 24px;
   background: #fff;
+  min-height: calc(100vh - 64px - 70px - 48px); /* Viewport height minus header, footer, and margins */
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .siteLayoutBackground {
-    padding: 16px !important;
-  }
+.siteLayoutFooter {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.spinContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
