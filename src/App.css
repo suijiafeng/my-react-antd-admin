@@ -1,0 +1,55 @@
+/* src/App.css */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  padding: 24px;
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+.ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-menu.ant-menu-dark {
+  flex: 1;
+}
+
+.header-right {
+  float: right;
+  margin-right: 24px;
+}
+
+.content-wrapper {
+  padding: 24px;
+  background: #fff;
+  min-height: 360px;
+}
+
+.login-form {
+  max-width: 300px;
+  margin: 100px auto;
+}
+
+.login-form-button {
+  width: 100%;
+}
