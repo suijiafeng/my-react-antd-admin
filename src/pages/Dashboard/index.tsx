@@ -6,7 +6,7 @@ import { UserOutlined, ShoppingCartOutlined, DollarOutlined } from '@ant-design/
 
 const Dashboard: React.FC = () => {
   return (
-    <div className="dashboard">
+    <div>
       <h1>Dashboard</h1>
       <Row gutter={16}>
         <Col span={8}>
@@ -21,7 +21,7 @@ const Dashboard: React.FC = () => {
         <Col span={8}>
           <Card>
             <Statistic
-              title="Orders"
+              title="Products"
               value={93}
               prefix={<ShoppingCartOutlined />}
             />

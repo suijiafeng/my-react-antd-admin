@@ -1,0 +1,22 @@
+/* src/components/Layout/Layout.module.css */
+
+.siteLayoutBackground {
+  background: #fff;
+}
+
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.siteLayoutBackground {
+  background: #fff;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .siteLayoutBackground {
+    padding: 16px !important;
+  }
+}

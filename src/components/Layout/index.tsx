@@ -1,33 +1,23 @@
-import React, { useState } from 'react';
-import { Layout, Menu } from 'antd';
-import { Link, Outlet, useLocation } from 'react-router-dom';
-import { UserOutlined, DashboardOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
+// src/components/Layout/index.tsx
 
-const { Header, Content, Footer, Sider } = Layout;
+import React from 'react';
+import { Layout } from 'antd';
+import { Outlet } from 'react-router-dom';
+import Sidebar from './Sidebar';
+import styles from './Layout.module.css';
 
-const MainLayout: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
-  const { t } = useTranslation();
-  const location = useLocation();
+const { Header, Content, Footer } = Layout;
 
+const AppLayout: React.FC = () => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
-        <div className="logo" />
-        <Menu theme="dark" selectedKeys={[location.pathname]} mode="inline">
-          <Menu.Item key="/" icon={<DashboardOutlined />}>
-            <Link to="/">{t('menu.dashboard')}</Link>
-          </Menu.Item>
-          <Menu.Item key="/users" icon={<UserOutlined />}>
-            <Link to="/users">{t('menu.users')}</Link>
-          </Menu.Item>
-        </Menu>
-      </Sider>
+      <Sidebar />
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }} />
-        <Content style={{ margin: '0 16px' }}>
-          <Outlet />
+        <Header className={styles.siteLayoutBackground} style={{ padding: 0 }} />
+        <Content style={{ margin: '16px' }}>
+          <div className={styles.siteLayoutBackground} style={{ padding: 24, minHeight: 360 }}>
+            <Outlet />
+          </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
       </Layout>
@@ -35,4 +25,4 @@ const MainLayout: React.FC = () => {
   );
 };
 
-export default MainLayout;
+export default AppLayout;

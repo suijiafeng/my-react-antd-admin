@@ -1,0 +1,74 @@
+/* src/pages/Login/Login.module.css */
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+}
+
+.loginForm {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.loginForm:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.loginFormTitle {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #1890ff;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.loginFormButton {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+}
+
+.loginFormForgot {
+  float: right;
+  color: #1890ff;
+}
+
+.loginFormRegister {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* 改进输入框样式 */
+.loginForm :global(.ant-input-affix-wrapper) {
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s ease;
+}
+
+.loginForm :global(.ant-input-affix-wrapper:hover),
+.loginForm :global(.ant-input-affix-wrapper:focus) {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* 响应式设计 */
+@media (max-width: 576px) {
+  .loginForm {
+    padding: 24px;
+  }
+
+  .loginFormTitle {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+}
