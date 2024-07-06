@@ -13,6 +13,7 @@ import {
   MenuUnfoldOutlined,
 } from '@ant-design/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 import styles from './Sidebar.module.css';
 
@@ -42,16 +43,17 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ collapsed, setCollapsed }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
 
   const items: MenuItem[] = [
-    getItem('Dashboard', '/', <DashboardOutlined />),
-    getItem('User Management', '/users', <UserOutlined />),
-    getItem('Products', '/products', <ShopOutlined />),
-    getItem('Team', 'sub1', <TeamOutlined />, [
-      getItem('Team 1', '/team/team1'),
-      getItem('Team 2', '/team/team2'),
+    getItem(t('sidebar.dashboard'), '/', <DashboardOutlined />),
+    getItem(t('sidebar.userManagement'), '/users', <UserOutlined />),
+    getItem(t('sidebar.products'), '/products', <ShopOutlined />),
+    getItem(t('sidebar.team'), 'sub1', <TeamOutlined />, [
+      getItem(t('sidebar.team1'), '/team/team1'),
+      getItem(t('sidebar.team2'), '/team/team2'),
     ]),
-    getItem('Files', '/files', <FileOutlined />),
+    getItem(t('sidebar.files'), '/files', <FileOutlined />),
   ];
 
   const onClick: MenuProps['onClick'] = (e) => {

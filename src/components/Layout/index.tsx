@@ -3,10 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Spin } from 'antd';
 import { Outlet } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Sidebar from './Sidebar';
+import AppHeader from './Header';
 import styles from './Layout.module.css';
 
-const { Header, Content, Footer } = Layout;
+const { Content, Footer } = Layout;
 
 const AppLayout: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -14,6 +16,7 @@ const AppLayout: React.FC = () => {
     const savedCollapsed = localStorage.getItem('sidebarCollapsed');
     return savedCollapsed ? JSON.parse(savedCollapsed) : false;
   });
+  const { t } = useTranslation();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -31,7 +34,7 @@ const AppLayout: React.FC = () => {
     <Layout className={styles.appLayout}>
       <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
       <Layout className={styles.siteLayout} style={{ marginLeft: collapsed ? 80 : 200 }}>
-        <Header className={styles.siteLayoutBackground} />
+        <AppHeader />
         <Content className={styles.siteLayoutContent}>
           {loading ? (
             <div className={styles.spinContainer}>
@@ -41,9 +44,7 @@ const AppLayout: React.FC = () => {
             <Outlet />
           )}
         </Content>
-        <Footer className={styles.siteLayoutFooter}>
-          Ant Design ©2023 Created by Ant UED
-        </Footer>
+        <Footer className={styles.siteLayoutFooter}>{t('footer.copyright')}</Footer>
       </Layout>
     </Layout>
   );

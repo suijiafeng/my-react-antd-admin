@@ -1,0 +1,19 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "userManagement": "User Management",
+    "products": "Products",
+    "team": "Team",
+    "team1": "Team 1",
+    "team2": "Team 2",
+    "files": "Files"
+  },
+  "header": {
+    "language": "Language",
+    "english": "English",
+    "chinese": "Chinese"
+  },
+  "footer": {
+    "copyright": "Ant Design ©2023 Created by Ant UED"
+  }
+}
