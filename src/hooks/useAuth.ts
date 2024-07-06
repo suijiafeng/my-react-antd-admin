@@ -17,7 +17,7 @@ export const useAuth = () => {
     setLoading(false);
   }, [dispatch]);
 
-  const loginUser = (username: string, password: string) => {
+  const loginUser = (username: string) => {
     // Here you would typically make an API call to authenticate the user
     dispatch(login({ username, role: 'admin' }));
     localStorage.setItem('token', 'fake-jwt-token');

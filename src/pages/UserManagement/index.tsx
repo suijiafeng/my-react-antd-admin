@@ -30,7 +30,7 @@ const columns: ColumnsType<DataType> = [
   {
     title: 'Action',
     key: 'action',
-    render: (_, record) => (
+    render: () => (
       <Space size="middle">
         <Button>Edit</Button>
         <Button danger>Delete</Button>

@@ -6,8 +6,7 @@ import styles from './Layout.module.css';
 const Logo: React.FC = () => {
   return (
     <div className={styles.logo}>
-      {/* You can replace this with an actual logo image */}
-      <h1 style={{ color: 'white', textAlign: 'center', lineHeight: '32px', margin: 0, fontSize: '18px' }}>
+      <h1 className='text-white text-center text-xl  leading-8	m-2.5 p-4'>
         Logo
       </h1>
     </div>

@@ -1,7 +1,7 @@
 // src/components/Layout/Sidebar.tsx
 
 import React from 'react';
-import { Layout, Menu, Tooltip, Button } from 'antd';
+import { Layout, Menu, Tooltip, Button, ConfigProvider } from 'antd';
 import type { MenuProps } from 'antd';
 import {
   DashboardOutlined,
@@ -15,7 +15,6 @@ import {
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
-import styles from './Sidebar.module.css';
 
 const { Sider } = Layout;
 
@@ -63,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, setCollapsed }) => {
   const getMenuItems = (menuItems: MenuItem[]): MenuItem[] => {
     return menuItems.map(item => {
       if (item && 'label' in item && 'key' in item) {
-        const { label, key, icon, children } = item;
+        const { label, children } = item as MenuItem & { children?: MenuItem[],label:string };
         return {
           ...item,
           label: collapsed ? (
@@ -73,7 +72,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, setCollapsed }) => {
           ) : (
             label
           ),
-          ...(children && { children: getMenuItems(children) }),
+          ...(children ? { children: getMenuItems(children) } : {}),
         };
       }
       return item;
@@ -81,35 +80,50 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, setCollapsed }) => {
   };
 
   return (
-    <Sider 
-      collapsible 
-      collapsed={collapsed} 
-      onCollapse={setCollapsed}
-      className={styles.sidebar}
-      trigger={null}
-      width={200}
-      collapsedWidth={80}
+    <ConfigProvider
+      theme={{
+        components: {
+          Menu: {
+            itemBg: '#001529',
+            itemColor: 'rgba(255, 255, 255, 0.65)',
+            itemHoverColor: '#fff',
+            itemSelectedBg: '#1890ff',
+            itemSelectedColor: '#fff',
+          },
+        },
+      }}
     >
-      <div className={styles.sidebarContent}>
-        <Logo />
-        <Menu
-          theme="dark"
-          defaultSelectedKeys={['/']}
-          mode="inline"
-          items={getMenuItems(items)}
-          onClick={onClick}
-          selectedKeys={[location.pathname]}
-        />
-        <div className={styles.triggerContainer}>
-          <Button 
-            type="text" 
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />} 
-            onClick={() => setCollapsed(!collapsed)}
-            className={styles.trigger}
+      <Sider 
+        collapsible 
+        collapsed={collapsed} 
+        onCollapse={setCollapsed}
+        className="fixed left-0 h-screen z-10"
+        trigger={null}
+        width={200}
+        collapsedWidth={80}
+      >
+        <div className="flex flex-col h-full">
+          <Logo />
+          <Menu
+            theme="dark"
+            defaultSelectedKeys={['/']}
+            mode="inline"
+            items={getMenuItems(items)}
+            onClick={onClick}
+            selectedKeys={[location.pathname]}
+            className="flex-1"
           />
+          <div className="p-4 bg-black bg-opacity-10">
+            <Button 
+              type="text" 
+              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />} 
+              onClick={() => setCollapsed(!collapsed)}
+              className="w-full h-10 flex items-center justify-center text-white hover:text-blue-400"
+            />
+          </div>
         </div>
-      </div>
-    </Sider>
+      </Sider>
+    </ConfigProvider>
   );
 };
 

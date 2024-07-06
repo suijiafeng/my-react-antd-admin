@@ -1,7 +1,7 @@
 // src/components/Layout/Header.tsx
 
 import React from 'react';
-import { Layout, Menu, Dropdown } from 'antd';
+import { Layout, Dropdown } from 'antd';
 import { GlobalOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import type { MenuProps } from 'antd';

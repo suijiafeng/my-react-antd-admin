@@ -1,6 +1,5 @@
 // src/routes/index.tsx
 
-import React from 'react';
 import { RouteObject } from 'react-router-dom';
 import AppLayout from '../components/Layout';
 import Dashboard from '../pages/Dashboard';

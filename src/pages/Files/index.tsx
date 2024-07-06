@@ -1,7 +1,7 @@
 // src/pages/Files/index.tsx
 
 import React from 'react';
-import { Table, Tag, Space } from 'antd';
+import { Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
 interface DataType {

@@ -7,11 +7,12 @@ import { UserOutlined, ShoppingCartOutlined, DollarOutlined } from '@ant-design/
 const Dashboard: React.FC = () => {
   return (
     <div>
-      <h1>Dashboard</h1>
+
+      <h1 className='p-4 bg-blue-500 text-white'>Dashboard</h1>
       <Row gutter={16}>
         <Col span={8}>
           <Card>
-            <Statistic
+            <Statistic 
               title="Users"
               value={1128}
               prefix={<UserOutlined />}
