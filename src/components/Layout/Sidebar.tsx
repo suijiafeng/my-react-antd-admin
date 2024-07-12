@@ -53,6 +53,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, setCollapsed }) => {
       getItem(t('sidebar.team2'), '/team/team2'),
     ]),
     getItem(t('sidebar.files'), '/files', <FileOutlined />),
+    getItem(t('sidebar.game'), '/game', <FileOutlined />),
   ];
 
   const onClick: MenuProps['onClick'] = (e) => {

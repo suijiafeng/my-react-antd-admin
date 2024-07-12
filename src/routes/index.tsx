@@ -9,6 +9,7 @@ import Team1 from '../pages/Team/Team1';
 import Team2 from '../pages/Team/Team2';
 import Files from '../pages/Files';
 import NotFound from '../pages/NotFound';
+import Tetris from '../pages/Game/Tetris'
 
 const routes: RouteObject[] = [
   {
@@ -21,6 +22,7 @@ const routes: RouteObject[] = [
       { path: 'team/team1', element: <Team1 /> },
       { path: 'team/team2', element: <Team2 /> },
       { path: 'files', element: <Files /> },
+      { path: 'game', element: <Tetris /> },
       { path: '*', element: <NotFound /> },
     ],
   },
